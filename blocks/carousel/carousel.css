@@ -2,7 +2,6 @@
 
 .carousel {
   position: relative;
-  padding-left: var(--spacing-l);
 }
 
 .carousel-viewport {
