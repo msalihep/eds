@@ -18,7 +18,7 @@ function buildArrow(direction) {
 
 export default function init(el) {
   const rows = [...el.querySelectorAll(':scope > div')];
-
+  console.log(rows);
   const viewport = document.createElement('div');
   viewport.className = 'carousel-viewport';
 
