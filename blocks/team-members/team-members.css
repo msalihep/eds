@@ -1,0 +1,66 @@
+.team-members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+.team-members-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 12px;
+  background: var(--color-background);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+  transition: box-shadow 0.2s ease;
+}
+
+.team-members-card:hover {
+  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+}
+
+.team-members-card img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.team-members-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.team-members-info h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.team-members-role {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-gray-700);
+}
+
+.team-members-dept {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-gray-500);
+}
+
+.team-members-email {
+  font-size: 0.8rem;
+  color: var(--color-link);
+  text-decoration: none;
+  margin-top: 0.2rem;
+}
+
+.team-members-email:hover {
+  text-decoration: underline;
+}

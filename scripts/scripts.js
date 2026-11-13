@@ -1,4 +1,5 @@
 import { loadArea, setConfig } from './ak.js';
+import ENV from './utils/env.js';
 
 // Satisfies require-trusted-types-for; runs before loadPage reaches any sink.
 if (window.trustedTypes?.createPolicy) {
@@ -30,6 +31,13 @@ const linkBlocks = [
 // Blocks with self-managed styles
 const components = ['fragment', 'schedule'];
 
+// get-event App Builder action per environment (see scripts/utils/env.js)
+const eventActionUrl = {
+  dev: 'http://localhost:9080/api/v1/web/event-appbuilder/get-event',
+  stage: 'https://18501-eds-stage.adobeio-static.net/api/v1/web/event-appbuilder/get-event',
+  prod: 'https://18501-eds-prod.adobeio-static.net/api/v1/web/event-appbuilder/get-event',
+}[ENV];
+
 // How to decorate an area before loading it
 const decorateArea = ({ area = document }) => {
   const eagerLoad = (parent, selector) => {
@@ -43,7 +51,7 @@ const decorateArea = ({ area = document }) => {
 };
 
 export async function loadPage() {
-  setConfig({ hostnames, locales, linkBlocks, components, decorateArea });
+  setConfig({ hostnames, locales, linkBlocks, components, decorateArea, eventActionUrl });
   await loadArea();
 }
 await loadPage();
